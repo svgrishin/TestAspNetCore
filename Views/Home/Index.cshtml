@@ -1,0 +1,206 @@
+﻿@{
+    ViewData["Title"] = "Home Page";
+}
+
+<div class="text-center">
+    <h1 class="display-4">Welcome</h1>
+    <p>Learn about <a href="https://docs.microsoft.com/aspnet/core">building Web apps with ASP.NET Core</a>.</p>
+</div>
+<div class="text-center">
+    <br>
+	<br>
+	<br>
+	<br>  
+    <asp:Panel ID="HistoryPannel" runat="server" Height="279px" Width="100%" HorizontalAlign="Center" Visible="False">
+    <table width="100%">
+        <tr>
+            <td width="30%">
+                <asp:Panel ID="HistoryPannel" runat="server" Height="279px" Width="100%" HorizontalAlign="Center" Visible="False">
+                    <asp:ListBox ID="HistoryList" runat="server" Height="252px" Width="100%"></asp:ListBox>
+                    <br>
+                    <asp:Button ID="btn_Ok" runat="server" class="panellMRbuttons btn-MR" OnClick="Button1_Click" style="left: 0px; top: 0px; height: 24px; width: 45px" Text="Ok" />
+                </asp:Panel>
+            </td>
+            <td>
+                <asp:Panel ID="CalcPannel" runat="server" Height="404px" Width="100%">
+				
+                <table align ="center" style="width: 100%">
+                    <tr>
+                        <td align="right">
+                            <asp:DropDownList Width="100%" ID="Combobox1" runat="server" style="margin-left: 0">
+                            </asp:DropDownList>
+                            
+                        </td>
+                    </tr>
+                    <tr>
+                        <td align="center">
+                            <asp:Label ID="label1" Width="100%" class="Label" runat="server" Text="0" Font-Overline="False" Font-Size="26pt" Font-Strikeout="False"/>
+                        </td>
+                    </tr>
+                </table>
+                <table align="center" width="100%">
+                    <tr>
+                        <td width="16%">
+                            <button name="btn_MC" value="MC" class="panellMRbuttons btn-MR">MC</button>
+                            @*<asp:Button ID="btn_MC" runat="server" Text="MC" OnClick="btn_MC_Click" class="panellMRbuttons btn-MR"/>*@
+                        </td>
+                        <td width="16%">
+                            <button name="btn_MR" value="MR" class="panellMRbuttons btn-MR">MR</button>
+                            @*<asp:Button ID="btn_MR" runat="server" Text="MR" OnClick="btn_MR_Click" class="panellMRbuttons btn-MR" />*@
+                        </td>
+                        <td width="16%">
+                            <button name="btn_MPlus" value="M+" class="panellMRbuttons btn-MR">M+</button>
+                            @*<asp:Button ID="btn_MPlus" runat="server" Text="M+" OnClick="btn_MPlus_Click" class="panellMRbuttons btn-MR"/>*@
+                        </td>
+                        <td width="16%">
+                            <button name="btn_MMinus" value="M-" class="panellMRbuttons btn-MR">M-</button>
+                            @*<asp:Button ID="btn_MMinus" runat="server" Text="M-" OnClick="btn_MMinus_Click" class="panellMRbuttons btn-MR"/>*@
+                        </td>
+                        <td width="16%">
+                            <button name="btn_MS" value="MS" class="panellMRbuttons btn-MR">MS</button>
+                            @*<asp:Button ID="btn_MS" runat="server" Text="MS" OnClick="btn_MS_Click" class="panellMRbuttons btn-MR"/>*@
+                        </td>
+                        <td width="16%">
+                            <button name="btn_MList" value="M" class="panellMRbuttons btn-MR">MS</button>
+                            @*<asp:Button ID="btn_MList" runat="server" Text="M" OnClick="btn_MList_Click" class="panellMRbuttons btn-MR"/>*@
+                        </td>
+                    </tr>
+                </table>
+                <table align="center" width="100%">
+                    <tr>
+                        <td width="25%">
+                            <button name="btn_Percent" class="panell6buttons btn-6">%</button>
+                            @*<asp:Button ID="btn_Percent" runat="server" Text="%" OnClick="btn_Percent_Click1" class="panell6buttons btn-6" Width="100%"/>*@
+                        </td>
+                        <td width="25%">
+                            <button name="btn_CE" class="panell6buttons btn-6">CE</button>
+                            @*<asp:Button ID="Button8" runat="server" Text="CE" OnClick="Button8_Click" class="panell6buttons btn-6" Width="100%"/>*@
+                        </td>
+                        <td width="25%">
+                            <button name="btn_C" class="panell6buttons btn-6">C</button>
+                            @*<asp:Button ID="btn_C" runat="server" Text="C" OnClick="btn_C_Click" class="panell6buttons btn-6" Width="100%"/>*@
+                        </td>
+                        <td width="25%">
+                            <button name="btn_Backspase" class="panell6buttons btn-6">&#8701;</button>
+                            @*<asp:Button ID="btn_Backspase" runat="server" Text="&#8701;" OnClick="btn_Backspase_Click" class="panell6buttons btn-6" Width="100%"/>*@
+                        </td>
+                    </tr>
+                    <tr>
+                        <td width="25%">
+                            <button name="btn_History" class="panell6buttons btn-6">&#8461;</button>
+                            @*<asp:Button ID="btn_History" runat="server" Text="&#8461;" OnClick="btn_History_Click1" class="panell6buttons btn-6" Width="100%"/>*@
+                        </td>
+                        <td width="25%">
+                            <button name="btn_SQR" class="panell6buttons btn-6">x&sup2;</button>
+                            @*<asp:Button ID="btn_SQR" runat="server" Text="x&sup2;" OnClick="btn_SQR_Click1" class="panell6buttons btn-6" Width="100%"/>*@
+                        </td>
+                        <td width="25%">
+                            <button name="btn_SQRT" class="panell6buttons btn-6">&#8730;</button>
+                            @*<asp:Button ID="btn_SQRT" runat="server" Text="&#8730;x" OnClick="btn_SQRT_Click1" class="panell6buttons btn-6" Width="100%"/>*@
+                        </td>
+                        <td width="25%">
+                            <button name="btn_Divide" class="panell6buttons btn-6">&#247;</button>
+                            @*<asp:Button ID="btn_Divide" runat="server" Text="&#247;" OnClick="btn_Divide_Click1" class="panell6buttons btn-6" Width="100%"/>*@
+                        </td>
+                    </tr>
+                    <tr>
+                        <td width="25%">
+                            @*<asp:Button ID="btn_7" runat="server" Text="7" OnClick="Nubmer_Click" class="panell4buttons btn-4" Width="100%"/>*@
+                            <button name="btn_7" value="7" class="panell4buttons btn-4">7</button>
+                        </td>
+                        <td width="25%">
+                            @*<asp:Button ID="btn_8" runat="server" Text="8" OnClick="Nubmer_Click" class="panell4buttons btn-4" Width="100%"/>*@
+                            <button name="btn_8" value="8" class="panell4buttons btn-4">8</button>
+                        </td>
+                        <td width="25%">
+                            @*<asp:Button ID="btn_9" runat="server" Text="9" OnClick="Nubmer_Click" class="panell4buttons btn-4" Width="100%"/>*@
+                            <button name="btn_9" value="9" class="panell4buttons btn-4">9</button>
+                        </td>
+                        <td width="25%">
+                            <button name="btn_Multiply" class="panell6buttons btn-6">&#215;</button>
+                            @*<asp:Button ID="btn_Multiply" runat="server" Text="&#215;" OnClick="btn_Multiply_Click1" class="panell6buttons btn-6" Width="100%"/>*@
+                        </td>
+                    </tr>
+                    <tr>
+                        <td width="25%">
+                    @*<asp:Button ID="btn_4" runat="server" Text="4" OnClick="Nubmer_Click" class="panell4buttons btn-4" Width="100%"/>*@
+                    <button name="btn_4" value="4" class="panell4buttons btn-4">4</button>
+                </td>
+                        <td width="25%">
+                    @*<asp:Button ID="btn_5" runat="server" Text="5" OnClick="Nubmer_Click" class="panell4buttons btn-4" Width="100%"/>*@
+                    <button name="btn_5" value="5" class="panell4buttons btn-4">5</button>
+                </td>
+                        <td width="25%">
+                    @*<asp:Button ID="btn_6" runat="server" Text="6" OnClick="Nubmer_Click" class="panell4buttons btn-4" Width="100%"/>*@
+                    <button name="btn_6" value="6" class="panell4buttons btn-4">6</button>
+                </td>
+                        <td width="25%">
+                    <button name="btn_Minus" class="panell6buttons btn-6">-</button>
+                    @*<asp:Button ID="btn_Minus" runat="server" Text="-" OnClick="btn_Minus_Click1" class="panell6buttons btn-6" Width="100%"/>*@
+                </td>
+            </tr>
+            <tr>
+                        <td width="25%">
+                    @*<asp:Button ID="btn_1" runat="server" Text="1" OnClick="Nubmer_Click" class="panell4buttons btn-4" Width="100%"/>*@
+                    <button name="btn_1" value="1" class="panell4buttons btn-4">1</button>
+                </td>
+                        <td width="25%">
+                    <button name="btn_2" value="2" class="panell4buttons btn-4">2</button>
+                    @*<asp:Button ID="btn_2" runat="server" Text="2" OnClick="Nubmer_Click" class="panell4buttons btn-4" Width="100%"/>*@
+                </td>
+                        <td width="25%">
+                    <button name="btn_3" value="3" class="panell4buttons btn-4">3</button>
+                    @*<asp:Button ID="btn_3" runat="server" Text="3" OnClick="Nubmer_Click" class="panell4buttons btn-4" Width="100%"/>*@
+                </td>
+                        <td width="25%">
+                    @*<asp:Button ID="btn_Plus" runat="server" Text="+" OnClick="btn_Plus_Click" class="panell6buttons btn-6" Width="100%"/>*@
+                    <button name="btn_Plus" value="+" class="panell6buttons btn-6">+</button>
+                </td>
+            </tr>
+            <tr>
+                        <td width="25%">
+                    @*<asp:Button ID="btn_Negative" runat="server" Text="&#177;" OnClick="btn_Negative_Click1" class="panell4buttons btn-4" Width="100%"/>*@
+                    <button name="btn_Negative" class="panell4buttons btn-4">&#177;</button>
+                </td>
+                        <td width="25%">
+                    <button name="btn_0" value="0" class="panell4buttons btn-4">0</button>
+                    @*<asp:Button ID="btn_0" runat="server" Text="0" OnClick="btn_Zero_Click" class="panell4buttons btn-4" Width="100%"/>*@
+                </td>
+                        <td width="25%">
+                    <button name="btn_Coma" value="," class="panell4buttons btn-4">,</button>
+                    @*<asp:Button ID="btn_Coma" runat="server" Text="," OnClick="btn_Coma_Click" class="panell4buttons btn-4" Width="100%"/>*@
+                </td>
+                        <td width="25%">
+                    <button name="btn_Result" class="panell6buttons btn-6">&#61;</button>
+                    @*<asp:Button ID="btn_Result" runat="server" Text="&#61;" OnClick="btn_Result_Click1" class="panell6buttons btn-6" Width="100%"/>*@
+                </td>
+            </tr>
+        </table>
+
+    </asp:Panel>
+
+            </td>
+            <td style="width: 30%">
+                <asp:Panel ID="MRPannel" runat="server" Height="279px" Width="100%" HorizontalAlign="Center" Visible="False">
+                    <asp:ListBox ID="listBox_MR" runat="server" Height="252px" Width="100%"></asp:ListBox>
+                    <br>
+                    <asp:Button ID="btn_Ok2" runat="server" class="panellMRbuttons btn-MR" OnClick="btn_Ok2_Click" style="left: 0px; top: 0px; height: 24px; width: 45px" Text="Ok" />
+                </asp:Panel>
+            </td>
+        </tr>
+    </table>
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+	<br>
+</div>
