@@ -11,17 +11,18 @@
 	<br>
 	<br>
 	<br>  
-    <asp:Panel ID="HistoryPannel" runat="server" Height="279px" Width="100%" HorizontalAlign="Center" Visible="False">
+    <form>
+    <asp:Panel ID="HistoryPannel" runat="server" Height="279px" Width="30%" HorizontalAlign="Center" Visible="False">
     <table width="100%">
         <tr>
-            <td width="30%">
+            <td width="25%">
                 <asp:Panel ID="HistoryPannel" runat="server" Height="279px" Width="100%" HorizontalAlign="Center" Visible="False">
                     <asp:ListBox ID="HistoryList" runat="server" Height="252px" Width="100%"></asp:ListBox>
                     <br>
                     <asp:Button ID="btn_Ok" runat="server" class="panellMRbuttons btn-MR" OnClick="Button1_Click" style="left: 0px; top: 0px; height: 24px; width: 45px" Text="Ok" />
                 </asp:Panel>
             </td>
-            <td>
+            <td width="50%">
                 <asp:Panel ID="CalcPannel" runat="server" Height="404px" Width="100%">
 				
                 <table align ="center" style="width: 100%">
@@ -29,12 +30,12 @@
                         <td align="right">
                             <asp:DropDownList Width="100%" ID="Combobox1" runat="server" style="margin-left: 0">
                             </asp:DropDownList>
-                            
                         </td>
                     </tr>
                     <tr>
-                        <td align="center">
-                            <asp:Label ID="label1" Width="100%" class="Label" runat="server" Text="0" Font-Overline="False" Font-Size="26pt" Font-Strikeout="False"/>
+                        <td align="right">
+                            @*<asp:Label ID="label1" Width="100%" class="Label" runat="server" Text="0" Font-Overline="False" Font-Size="26pt" Font-Strikeout="False"/>*@
+                            <label class="Label">@TempData["display"]</label>
                         </td>
                     </tr>
                 </table>
@@ -73,15 +74,15 @@
                             @*<asp:Button ID="btn_Percent" runat="server" Text="%" OnClick="btn_Percent_Click1" class="panell6buttons btn-6" Width="100%"/>*@
                         </td>
                         <td width="25%">
-                            <button name="btn_CE" class="panell6buttons btn-6">CE</button>
+                            <button name="btn_CE" asp-action="btn_CE_Click1" class="panell6buttons btn-6">CE</button>
                             @*<asp:Button ID="Button8" runat="server" Text="CE" OnClick="Button8_Click" class="panell6buttons btn-6" Width="100%"/>*@
                         </td>
                         <td width="25%">
-                            <button name="btn_C" class="panell6buttons btn-6">C</button>
+                            <button name="btn_C" asp-action="btn_C_Click" class="panell6buttons btn-6">C</button>
                             @*<asp:Button ID="btn_C" runat="server" Text="C" OnClick="btn_C_Click" class="panell6buttons btn-6" Width="100%"/>*@
                         </td>
                         <td width="25%">
-                            <button name="btn_Backspase" class="panell6buttons btn-6">&#8701;</button>
+                            <button name="btn_Backspase" asp-action="btn_Backspase_Click" class="panell6buttons btn-6">&#8701;</button>
                             @*<asp:Button ID="btn_Backspase" runat="server" Text="&#8701;" OnClick="btn_Backspase_Click" class="panell6buttons btn-6" Width="100%"/>*@
                         </td>
                     </tr>
@@ -91,87 +92,87 @@
                             @*<asp:Button ID="btn_History" runat="server" Text="&#8461;" OnClick="btn_History_Click1" class="panell6buttons btn-6" Width="100%"/>*@
                         </td>
                         <td width="25%">
-                            <button name="btn_SQR" class="panell6buttons btn-6">x&sup2;</button>
+                            <button name="btn_SQR" asp-action="btn_SQR_Click" class="panell6buttons btn-6">x&sup2;</button>
                             @*<asp:Button ID="btn_SQR" runat="server" Text="x&sup2;" OnClick="btn_SQR_Click1" class="panell6buttons btn-6" Width="100%"/>*@
                         </td>
                         <td width="25%">
-                            <button name="btn_SQRT" class="panell6buttons btn-6">&#8730;</button>
+                            <button name="btn_SQRT" asp-action="btn_SQRT_Click" class="panell6buttons btn-6">&#8730;</button>
                             @*<asp:Button ID="btn_SQRT" runat="server" Text="&#8730;x" OnClick="btn_SQRT_Click1" class="panell6buttons btn-6" Width="100%"/>*@
                         </td>
                         <td width="25%">
-                            <button name="btn_Divide" class="panell6buttons btn-6">&#247;</button>
+                            <button name="btn_Divide" asp-action="btn_Divide_Click" class="panell6buttons btn-6">&#247;</button>
                             @*<asp:Button ID="btn_Divide" runat="server" Text="&#247;" OnClick="btn_Divide_Click1" class="panell6buttons btn-6" Width="100%"/>*@
                         </td>
                     </tr>
                     <tr>
                         <td width="25%">
                             @*<asp:Button ID="btn_7" runat="server" Text="7" OnClick="Nubmer_Click" class="panell4buttons btn-4" Width="100%"/>*@
-                            <button name="btn_7" value="7" class="panell4buttons btn-4">7</button>
+                            <button name="btn_number" value="7" asp-action="Number_Click" class="panell4buttons btn-4">7</button>
                         </td>
                         <td width="25%">
                             @*<asp:Button ID="btn_8" runat="server" Text="8" OnClick="Nubmer_Click" class="panell4buttons btn-4" Width="100%"/>*@
-                            <button name="btn_8" value="8" class="panell4buttons btn-4">8</button>
+                            <button name="btn_number" value="8" asp-action="Number_Click" class="panell4buttons btn-4">8</button>
                         </td>
                         <td width="25%">
                             @*<asp:Button ID="btn_9" runat="server" Text="9" OnClick="Nubmer_Click" class="panell4buttons btn-4" Width="100%"/>*@
-                            <button name="btn_9" value="9" class="panell4buttons btn-4">9</button>
+                            <button name="btn_number" value="9" asp-action="Number_Click" class="panell4buttons btn-4">9</button>
                         </td>
                         <td width="25%">
-                            <button name="btn_Multiply" class="panell6buttons btn-6">&#215;</button>
+                            <button name="btn_Multiply" asp-action="btn_Multiply_Click" class="panell6buttons btn-6">&#215;</button>
                             @*<asp:Button ID="btn_Multiply" runat="server" Text="&#215;" OnClick="btn_Multiply_Click1" class="panell6buttons btn-6" Width="100%"/>*@
                         </td>
                     </tr>
                     <tr>
                         <td width="25%">
                     @*<asp:Button ID="btn_4" runat="server" Text="4" OnClick="Nubmer_Click" class="panell4buttons btn-4" Width="100%"/>*@
-                    <button name="btn_4" value="4" class="panell4buttons btn-4">4</button>
+                    <button name="btn_number" value="4" asp-action="Number_Click" class="panell4buttons btn-4">4</button>
                 </td>
                         <td width="25%">
                     @*<asp:Button ID="btn_5" runat="server" Text="5" OnClick="Nubmer_Click" class="panell4buttons btn-4" Width="100%"/>*@
-                    <button name="btn_5" value="5" class="panell4buttons btn-4">5</button>
+                    <button name="btn_number" value="5" asp-action="Number_Click" class="panell4buttons btn-4">5</button>
                 </td>
                         <td width="25%">
                     @*<asp:Button ID="btn_6" runat="server" Text="6" OnClick="Nubmer_Click" class="panell4buttons btn-4" Width="100%"/>*@
-                    <button name="btn_6" value="6" class="panell4buttons btn-4">6</button>
+                    <button name="btn_number" value="6" asp-action="Number_Click" class="panell4buttons btn-4">6</button>
                 </td>
                         <td width="25%">
-                    <button name="btn_Minus" class="panell6buttons btn-6">-</button>
+                    <button name="btn_Minus" asp-action="btn_Minus_Click" class="panell6buttons btn-6">-</button>
                     @*<asp:Button ID="btn_Minus" runat="server" Text="-" OnClick="btn_Minus_Click1" class="panell6buttons btn-6" Width="100%"/>*@
                 </td>
             </tr>
             <tr>
                         <td width="25%">
                     @*<asp:Button ID="btn_1" runat="server" Text="1" OnClick="Nubmer_Click" class="panell4buttons btn-4" Width="100%"/>*@
-                    <button name="btn_1" value="1" class="panell4buttons btn-4">1</button>
+                    <button name="btn_number" value="1" asp-action="Number_Click" class="panell4buttons btn-4">1</button>
                 </td>
                         <td width="25%">
-                    <button name="btn_2" value="2" class="panell4buttons btn-4">2</button>
+                    <button name="btn_number" value="2" asp-action="Number_Click" class="panell4buttons btn-4">2</button>
                     @*<asp:Button ID="btn_2" runat="server" Text="2" OnClick="Nubmer_Click" class="panell4buttons btn-4" Width="100%"/>*@
                 </td>
                         <td width="25%">
-                    <button name="btn_3" value="3" class="panell4buttons btn-4">3</button>
+                    <button name="btn_number" value="3" asp-action="Number_Click" class="panell4buttons btn-4">3</button>
                     @*<asp:Button ID="btn_3" runat="server" Text="3" OnClick="Nubmer_Click" class="panell4buttons btn-4" Width="100%"/>*@
                 </td>
                         <td width="25%">
                     @*<asp:Button ID="btn_Plus" runat="server" Text="+" OnClick="btn_Plus_Click" class="panell6buttons btn-6" Width="100%"/>*@
-                    <button name="btn_Plus" value="+" class="panell6buttons btn-6">+</button>
+                    <button name="btn_Plus" value="+" asp-action="btn_Plus_Click" class="panell6buttons btn-6">+</button>
                 </td>
             </tr>
             <tr>
                         <td width="25%">
                     @*<asp:Button ID="btn_Negative" runat="server" Text="&#177;" OnClick="btn_Negative_Click1" class="panell4buttons btn-4" Width="100%"/>*@
-                    <button name="btn_Negative" class="panell4buttons btn-4">&#177;</button>
+                    <button name="btn_Negative" asp-action="btn_Negative_Click" class="panell4buttons btn-4">&#177;</button>
                 </td>
                         <td width="25%">
-                    <button name="btn_0" value="0" class="panell4buttons btn-4">0</button>
+                    <button name="btn_0" value="0" asp-action="btn_Zero_Click" class="panell4buttons btn-4">0</button>
                     @*<asp:Button ID="btn_0" runat="server" Text="0" OnClick="btn_Zero_Click" class="panell4buttons btn-4" Width="100%"/>*@
                 </td>
                         <td width="25%">
-                    <button name="btn_Coma" value="," class="panell4buttons btn-4">,</button>
+                    <button name="btn_Coma" value="," asp-action="btn_Coma_Click" class="panell4buttons btn-4">,</button>
                     @*<asp:Button ID="btn_Coma" runat="server" Text="," OnClick="btn_Coma_Click" class="panell4buttons btn-4" Width="100%"/>*@
                 </td>
                         <td width="25%">
-                    <button name="btn_Result" class="panell6buttons btn-6">&#61;</button>
+                    <button name="btn_Result" asp-action="btn_Result_Click" class="panell6buttons btn-6">&#61;</button>
                     @*<asp:Button ID="btn_Result" runat="server" Text="&#61;" OnClick="btn_Result_Click1" class="panell6buttons btn-6" Width="100%"/>*@
                 </td>
             </tr>
@@ -180,7 +181,7 @@
     </asp:Panel>
 
             </td>
-            <td style="width: 30%">
+            <td width="25%">
                 <asp:Panel ID="MRPannel" runat="server" Height="279px" Width="100%" HorizontalAlign="Center" Visible="False">
                     <asp:ListBox ID="listBox_MR" runat="server" Height="252px" Width="100%"></asp:ListBox>
                     <br>
@@ -189,7 +190,7 @@
             </td>
         </tr>
     </table>
-    
+    </form>
     
     
     

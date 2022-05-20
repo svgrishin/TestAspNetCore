@@ -20,6 +20,7 @@ body {
 
 .Label {
     text-align: right;
+    width: 100%;
     background-color: rgb(228, 228, 228);
     font-size: 32pt;
     border-radius: 1px;
