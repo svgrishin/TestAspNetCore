@@ -2,6 +2,7 @@
 using System.Diagnostics;
 using TestAspNetCore.Models;
 using TestAspNetCore.Controllers.Models;
+using Microsoft.AspNetCore.Mvc.Rendering;
 
 namespace TestAspNetCore.Controllers
 {
@@ -26,11 +27,12 @@ namespace TestAspNetCore.Controllers
         //===============================================================================================================
         //===============================================================================================================
 
-
+        public string results { get; set; }
 
         private static string location = "C:/Users/Public/Documents/calc.json";
 
-        public static List<string> resultStrings = new List<string>();
+        public static List<String> resultStrings = new List<String>();
+        public static SelectList Items = new SelectList(resultStrings);
 
         /// <summary>
         /// Объект калькулятора
@@ -57,12 +59,16 @@ namespace TestAspNetCore.Controllers
         public IActionResult Number_Click(string btn_number)
         {
             inputVal(btn_number[0]);
+            
+            resultStrings.Add(btn_number);
 
             return View("Index");
         }
 
         private void inputVal(char c)
         {
+
+            ViewBag.resultStrings = resultStrings;
             TempData["display"] = calc.inputValues(c);
         }
 
@@ -229,7 +235,8 @@ namespace TestAspNetCore.Controllers
         /// <param name="c">Калькулятор</param>
         private void addToCalcList(Calculator c)
         {
-            resultStrings.Add(c.resultString);
+            //ВЕРНУТЬ!!!
+            //resultStrings.Add(c.resultString);
         }
 
         public void saveMe()

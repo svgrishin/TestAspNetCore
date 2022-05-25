@@ -1,6 +1,10 @@
-﻿@{
+﻿@model TestAspNetCore.Controllers.HomeController
+
+@{
     ViewData["Title"] = "Home Page";
 }
+
+
 
 <div class="text-center">
     <h1 class="display-4">Welcome</h1>
@@ -28,8 +32,11 @@
                 <table align ="center" style="width: 100%">
                     <tr>
                         <td align="right">
-                            <asp:DropDownList Width="100%" ID="Combobox1" runat="server" style="margin-left: 0">
-                            </asp:DropDownList>
+                            
+
+                            @Html.DropDownListFor(Model=>Model.results, new SelectList(@TestAspNetCore.Controllers.HomeController.resultStrings))                  
+                            
+
                         </td>
                     </tr>
                     <tr>
@@ -70,7 +77,7 @@
                 <table align="center" width="100%">
                     <tr>
                         <td width="25%">
-                            <button name="btn_Percent" class="panell6buttons btn-6">%</button>
+                            <button name="btn_Percent" asp-action="Test" class="panell6buttons btn-6">%</button>
                             @*<asp:Button ID="btn_Percent" runat="server" Text="%" OnClick="btn_Percent_Click1" class="panell6buttons btn-6" Width="100%"/>*@
                         </td>
                         <td width="25%">

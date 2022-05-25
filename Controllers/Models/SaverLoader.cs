@@ -31,7 +31,10 @@ namespace TestAspNetCore.Controllers.Models
                 HomeController.calcs[i] = JsonConvert.DeserializeObject<Calculator>(str);
 
                 //HomeController.resultStrings[i] = HomeController.calcs[i].resultString;
-                HomeController.resultStrings.Add(HomeController.calcs[i].resultString);
+                
+                
+                //ВЕРНУТЬ!!!
+                //HomeController.resultStrings.Add(HomeController.calcs[i].resultString);
                 i++;
             }
 
