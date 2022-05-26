@@ -32,10 +32,8 @@
                 <table align ="center" style="width: 100%">
                     <tr>
                         <td align="right">
-                            
-
-                            @Html.DropDownListFor(Model=>Model.results, new SelectList(@TestAspNetCore.Controllers.HomeController.resultStrings))                  
-                            
+                                 
+                            @Html.DropDownList("testItems",null, new{onchange="results=this.value;"})                             
 
                         </td>
                     </tr>

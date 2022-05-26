@@ -27,12 +27,13 @@ namespace TestAspNetCore.Controllers
         //===============================================================================================================
         //===============================================================================================================
 
-        public string results { get; set; }
+        public static string results { get; set; }
 
         private static string location = "C:/Users/Public/Documents/calc.json";
 
-        public static List<String> resultStrings = new List<String>();
-        public static SelectList Items = new SelectList(resultStrings);
+        public static List<SelectListItem> resultStrings = new List<SelectListItem>();
+
+        
 
         /// <summary>
         /// Объект калькулятора
@@ -45,8 +46,14 @@ namespace TestAspNetCore.Controllers
         /// </summary>
         public static Calculator[] calcs = new Calculator[0];
 
-        public IActionResult Index()
+        public IActionResult Index(string? value)
         {
+
+            string str = value;
+
+            resultStrings.Add(new SelectListItem() { Text = "test", Value = resultStrings.Count().ToString() });
+            ViewBag.testItems = resultStrings;
+
             TempData["display"] = "0";
             return View();
         }
@@ -58,9 +65,12 @@ namespace TestAspNetCore.Controllers
 
         public IActionResult Number_Click(string btn_number)
         {
+            string str = results;
+
+            resultStrings.Add(new SelectListItem() { Text = btn_number, Value = resultStrings.Count().ToString() });
+            ViewBag.testItems=resultStrings;
+
             inputVal(btn_number[0]);
-            
-            resultStrings.Add(btn_number);
 
             return View("Index");
         }
