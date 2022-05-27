@@ -46,16 +46,13 @@ namespace TestAspNetCore.Controllers
         /// </summary>
         public static Calculator[] calcs = new Calculator[0];
 
-        public IActionResult Index(string? value)
+        public IActionResult Index()
         {
-
-            string str = value;
-
-            resultStrings.Add(new SelectListItem() { Text = "test", Value = resultStrings.Count().ToString() });
+            resultStrings.Add(new SelectListItem() { Text = "test", Value = "0" });
             ViewBag.testItems = resultStrings;
 
             TempData["display"] = "0";
-            return View();
+            return View("Index");
         }
 
         public IActionResult Privacy()
@@ -65,20 +62,15 @@ namespace TestAspNetCore.Controllers
 
         public IActionResult Number_Click(string btn_number)
         {
-            string str = results;
-
-            resultStrings.Add(new SelectListItem() { Text = btn_number, Value = resultStrings.Count().ToString() });
-            ViewBag.testItems=resultStrings;
-
+            
             inputVal(btn_number[0]);
+            ViewBag.testItems = resultStrings;
 
             return View("Index");
         }
 
         private void inputVal(char c)
         {
-
-            ViewBag.resultStrings = resultStrings;
             TempData["display"] = calc.inputValues(c);
         }
 
@@ -245,8 +237,8 @@ namespace TestAspNetCore.Controllers
         /// <param name="c">Калькулятор</param>
         private void addToCalcList(Calculator c)
         {
-            //ВЕРНУТЬ!!!
-            //resultStrings.Add(c.resultString);
+            resultStrings.Add(new SelectListItem() { Text = c.resultString, Value = calcs.Length.ToString() });
+            ViewBag.testItems = resultStrings;
         }
 
         public void saveMe()
@@ -313,6 +305,27 @@ namespace TestAspNetCore.Controllers
                 saveStatus();
             }
             catch { }
+
+            return View("Index");
+        }
+
+        /// <summary>
+        /// Загрузка калькулятора
+        /// </summary>
+        /// <param name="i">Индекс загружаемого калькулятора из массива калькуляторов></param>
+        public IActionResult loadMe(int value)
+        {
+            int i = value;
+                
+            calc = new Calculator(calcs[i]);
+            
+            calc.resultString = "";
+
+            TempData["display"] = calc.displayOut(calc.disp);
+
+            calc.ResetCalc();
+
+            calc.arg = calc.args[0].ToString();
 
             return View("Index");
         }
