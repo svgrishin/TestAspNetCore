@@ -48,13 +48,24 @@ namespace TestAspNetCore.Controllers
 
         public IActionResult Index()
         {
-            resultStrings.Add(new SelectListItem() { Text = "test", Value = "0" });
-            ViewBag.testItems = resultStrings;
+            
 
             TempData["display"] = "0";
             return View("Index");
         }
 
+        
+        public IActionResult resultsView()
+        {
+            resultStrings.Add(new SelectListItem() { Text = "test", Value = "0" });
+            resultStrings.Add(new SelectListItem() { Text = "test", Value = "0" });
+            resultStrings.Add(new SelectListItem() { Text = "test", Value = "0" });
+            resultStrings.Add(new SelectListItem() { Text = "test", Value = "0" });
+            ViewBag.testItems = resultStrings;
+
+            return View();
+        }
+        
         public IActionResult Privacy()
         {
             return View();
@@ -64,7 +75,8 @@ namespace TestAspNetCore.Controllers
         {
             
             inputVal(btn_number[0]);
-            ViewBag.testItems = resultStrings;
+            
+            //ViewBag.testItems = resultStrings;
 
             return View("Index");
         }

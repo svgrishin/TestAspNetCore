@@ -16,6 +16,9 @@
 	<br>
 	<br>  
     <form>
+
+        <button type="submit" formaction="/Home/resultsView">Click me</button>
+
     <asp:Panel ID="HistoryPannel" runat="server" Height="279px" Width="30%" HorizontalAlign="Center" Visible="False">
     <table width="100%">
         <tr>
@@ -31,12 +34,9 @@
 				
                 <table align ="center" style="width: 100%">
                     <tr>
-                        <td align="right">
-                                 
-                            @Html.DropDownList("testItems",null, new{onchange="document.location.href='loadMe?value='+this.value;"})
-  
+                        <td align="right">  
                             
-
+                            
                         </td>
                     </tr>
                     <tr>
