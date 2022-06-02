@@ -21,13 +21,11 @@ namespace TestAspNetCore.Controllers
             return View(new ErrorViewModel { RequestId = Activity.Current?.Id ?? HttpContext.TraceIdentifier });
         }
 
-
-
         //===============================================================================================================
         //===============================================================================================================
         //===============================================================================================================
 
-        public static string results { get; set; }
+        //public static string results { get; set; }
 
         private static string location = "C:/Users/Public/Documents/calc.json";
 
@@ -48,8 +46,6 @@ namespace TestAspNetCore.Controllers
 
         public IActionResult Index()
         {
-            
-
             TempData["display"] = "0";
             return View("Index");
         }
@@ -57,12 +53,7 @@ namespace TestAspNetCore.Controllers
         
         public IActionResult resultsView()
         {
-            resultStrings.Add(new SelectListItem() { Text = "test", Value = "0" });
-            resultStrings.Add(new SelectListItem() { Text = "test", Value = "0" });
-            resultStrings.Add(new SelectListItem() { Text = "test", Value = "0" });
-            resultStrings.Add(new SelectListItem() { Text = "test", Value = "0" });
-            ViewBag.testItems = resultStrings;
-
+            ViewBag.resultStrings = resultStrings;
             return View();
         }
         
@@ -75,8 +66,6 @@ namespace TestAspNetCore.Controllers
         {
             
             inputVal(btn_number[0]);
-            
-            //ViewBag.testItems = resultStrings;
 
             return View("Index");
         }
@@ -240,6 +229,10 @@ namespace TestAspNetCore.Controllers
         {
             saveMe();
             if (calc.resultString != "") addToCalcList(calc);
+
+
+
+
             calc.resultString = "";
         }
 
@@ -250,7 +243,7 @@ namespace TestAspNetCore.Controllers
         private void addToCalcList(Calculator c)
         {
             resultStrings.Add(new SelectListItem() { Text = c.resultString, Value = calcs.Length.ToString() });
-            ViewBag.testItems = resultStrings;
+            //ViewBag.testItems = resultStrings;
         }
 
         public void saveMe()
@@ -327,7 +320,7 @@ namespace TestAspNetCore.Controllers
         /// <param name="i">Индекс загружаемого калькулятора из массива калькуляторов></param>
         public IActionResult loadMe(int value)
         {
-            int i = value;
+            int i = value-1;
                 
             calc = new Calculator(calcs[i]);
             

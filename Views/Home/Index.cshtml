@@ -17,17 +17,13 @@
 	<br>  
     <form>
 
-        <button type="submit" formaction="/Home/resultsView">Click me</button>
+        <button type="submit" formaction="/Home/resultsView">История вычислений</button>
 
     <asp:Panel ID="HistoryPannel" runat="server" Height="279px" Width="30%" HorizontalAlign="Center" Visible="False">
     <table width="100%">
         <tr>
             <td width="25%">
-                <asp:Panel ID="HistoryPannel" runat="server" Height="279px" Width="100%" HorizontalAlign="Center" Visible="False">
-                    <asp:ListBox ID="HistoryList" runat="server" Height="252px" Width="100%"></asp:ListBox>
-                    <br>
-                    <asp:Button ID="btn_Ok" runat="server" class="panellMRbuttons btn-MR" OnClick="Button1_Click" style="left: 0px; top: 0px; height: 24px; width: 45px" Text="Ok" />
-                </asp:Panel>
+                
             </td>
             <td width="50%">
                 <asp:Panel ID="CalcPannel" runat="server" Height="404px" Width="100%">
@@ -35,7 +31,6 @@
                 <table align ="center" style="width: 100%">
                     <tr>
                         <td align="right">  
-                            
                             
                         </td>
                     </tr>
@@ -189,11 +184,7 @@
 
             </td>
             <td width="25%">
-                <asp:Panel ID="MRPannel" runat="server" Height="279px" Width="100%" HorizontalAlign="Center" Visible="False">
-                    <asp:ListBox ID="listBox_MR" runat="server" Height="252px" Width="100%"></asp:ListBox>
-                    <br>
-                    <asp:Button ID="btn_Ok2" runat="server" class="panellMRbuttons btn-MR" OnClick="btn_Ok2_Click" style="left: 0px; top: 0px; height: 24px; width: 45px" Text="Ok" />
-                </asp:Panel>
+                
             </td>
         </tr>
     </table>

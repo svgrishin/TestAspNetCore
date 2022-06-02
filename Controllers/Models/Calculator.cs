@@ -1,4 +1,6 @@
-﻿namespace TestAspNetCore.Controllers.Models
+﻿using Microsoft.AspNetCore.Mvc.Rendering;
+
+namespace TestAspNetCore.Controllers.Models
 {
     public class Calculator
     {
