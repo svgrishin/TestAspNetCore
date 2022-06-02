@@ -31,7 +31,6 @@ namespace TestAspNetCore.Controllers
 
         public static List<SelectListItem> resultStrings = new List<SelectListItem>();
 
-        
 
         /// <summary>
         /// Объект калькулятора
