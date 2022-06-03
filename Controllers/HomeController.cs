@@ -403,5 +403,16 @@ namespace TestAspNetCore.Controllers
             //}
             mrStrings.Add(new SelectListItem() { Text = calc.mr[indexOf].ToString(), Value = calc.mr.Length.ToString() });
         }
+
+        public IActionResult btn_MC_Click(string btn_MC)
+        {
+            calc.mr = new double[1];
+            mrStrings.Clear();
+            Array.Clear(calc.mr);
+
+            TempData["display"] = btn_MC;
+
+            return View("Index");
+        }
     }
 }

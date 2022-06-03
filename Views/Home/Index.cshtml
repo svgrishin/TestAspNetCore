@@ -44,7 +44,7 @@
                 <table align="center" width="100%">
                     <tr>
                         <td width="16%">
-                            <button name="btn_MC" value="MC" class="panellMRbuttons btn-MR">MC</button>
+                            <button name="btn_MC" value=@TempData["display"] asp-action="btn_MC_Click" class="panellMRbuttons btn-MR">MC</button>
                             @*<asp:Button ID="btn_MC" runat="server" Text="MC" OnClick="btn_MC_Click" class="panellMRbuttons btn-MR"/>*@
                         </td>
                         <td width="16%">
@@ -64,7 +64,7 @@
                             @*<asp:Button ID="btn_MS" runat="server" Text="MS" OnClick="btn_MS_Click" class="panellMRbuttons btn-MR"/>*@
                         </td>
                         <td width="16%">
-                            <button name="btn_MList" asp-action="MR_View" value="M" class="panellMRbuttons btn-MR">MS</button>
+                            <button name="btn_MList" asp-action="MR_View" value="M" class="panellMRbuttons btn-MR">M</button>
                             @*<asp:Button ID="btn_MList" runat="server" Text="M" OnClick="btn_MList_Click" class="panellMRbuttons btn-MR"/>*@
                         </td>
                     </tr>
