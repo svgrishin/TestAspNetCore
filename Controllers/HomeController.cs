@@ -361,14 +361,14 @@ namespace TestAspNetCore.Controllers
             TempData["display"] = calc.disp;
         }
 
-        public IActionResult btn_MPlus_Click()
+        public IActionResult btn_MPlus_Click(string btn_MPlus)
         {
             setMR(calc.mr.Length - 1, 1);
 
             calc.mrFlag = true;
 
-            btn_MC.Enabled = true;
-            btn_MR.Enabled = true;
+            TempData["display"] = btn_MPlus;
+            return View("Index");
         }
 
         public void setMR(int indexOf, int negative)
@@ -387,8 +387,6 @@ namespace TestAspNetCore.Controllers
 
             calc.funcFlag = true;
             calc.resBtnFlag = true;
-
-            btn_MList.Enabled = true;
 
             calc.mrFlag = true;
         }
