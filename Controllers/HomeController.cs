@@ -30,7 +30,7 @@ namespace TestAspNetCore.Controllers
         private static string location = "C:/Users/Public/Documents/calc.json";
 
         public static List<SelectListItem> resultStrings = new List<SelectListItem>();
-
+        public static List<SelectListItem> mrStrings = new List<SelectListItem>();
 
         /// <summary>
         /// Объект калькулятора
@@ -332,6 +332,78 @@ namespace TestAspNetCore.Controllers
             calc.arg = calc.args[0].ToString();
 
             return View("Index");
+        }
+
+        public IActionResult MR_View()
+        {
+            ViewBag.mrStrings = mrStrings;
+            return View();
+        }
+        
+        public IActionResult btn_MList_Click(int value)
+        {
+            try
+            {
+                getFromMR(value + 1);
+            }
+            catch
+            { }
+
+            return View("Index");
+        }
+
+        public void getFromMR(int indexOf)
+        {
+            calc.arg = calc.mr[indexOf - 1].ToString();
+            if (calc.mr[indexOf - 1] < 0) calc.minus = true;
+            calc.disp = calc.displayOut(calc.arg);
+
+            TempData["display"] = calc.disp;
+        }
+
+        public IActionResult btn_MPlus_Click()
+        {
+            setMR(calc.mr.Length - 1, 1);
+
+            calc.mrFlag = true;
+
+            btn_MC.Enabled = true;
+            btn_MR.Enabled = true;
+        }
+
+        public void setMR(int indexOf, int negative)
+        {
+            try
+            {
+                calc.mr[indexOf] += Convert.ToDouble(calc.arg) * negative;
+            }
+            catch
+            {
+                calc.mr[indexOf] = calc.args[0];
+                calc.arg = calc.mr[indexOf].ToString();
+            }
+
+            setMrList(indexOf);
+
+            calc.funcFlag = true;
+            calc.resBtnFlag = true;
+
+            btn_MList.Enabled = true;
+
+            calc.mrFlag = true;
+        }
+
+        public void setMrList(int indexOf)
+        {
+            //try
+            //{
+            //    listBox_MR.Items[calc.mr.Length - 1].Text = calc.mr[indexOf].ToString();
+            //}
+            //catch
+            //{
+            //    listBox_MR.Items.Add(calc.mr[indexOf].ToString());
+            //}
+            mrStrings.Add(new SelectListItem() { Text = calc.mr[indexOf].ToString(), Value = calc.mr.Length.ToString() });
         }
     }
 }
