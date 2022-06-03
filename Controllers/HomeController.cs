@@ -31,6 +31,7 @@ namespace TestAspNetCore.Controllers
 
         public static List<SelectListItem> resultStrings = new List<SelectListItem>();
         public static List<SelectListItem> mrStrings = new List<SelectListItem>();
+        public static List<SelectListItem> historySrings = new List<SelectListItem>();
 
         /// <summary>
         /// Объект калькулятора
@@ -266,7 +267,8 @@ namespace TestAspNetCore.Controllers
         {
             SaverLoader.loadHistory(location, calc.resultString);
 
-            return View("Index");
+            ViewBag.resultStrings = resultStrings;
+            return View("HistoryView");
         }
 
         public IActionResult btn_Negative_Click()
@@ -449,6 +451,20 @@ namespace TestAspNetCore.Controllers
             calc.mrFlag = true;
 
             TempData["display"] = btn_MS;
+            return View("Index");
+        }
+
+        public IActionResult loadCalc(int value)
+        {
+            try
+            {
+                loadMe(value+1);
+                resultStrings.Clear();
+            }
+            catch { }
+
+            TempData["display"] = calc.arg;
+
             return View("Index");
         }
     }

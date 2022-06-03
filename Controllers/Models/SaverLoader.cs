@@ -1,4 +1,5 @@
 ﻿using Newtonsoft.Json;
+using Microsoft.AspNetCore.Mvc.Rendering;
 
 namespace TestAspNetCore.Controllers.Models
 {
@@ -30,22 +31,10 @@ namespace TestAspNetCore.Controllers.Models
 
                 HomeController.calcs[i] = JsonConvert.DeserializeObject<Calculator>(str);
 
-                //HomeController.resultStrings[i] = HomeController.calcs[i].resultString;
-                
-                
-                //ВЕРНУТЬ!!!
                 //HomeController.resultStrings.Add(HomeController.calcs[i].resultString);
+                HomeController.resultStrings.Add(new SelectListItem() { Text = HomeController.calcs[i].resultString, Value = i.ToString() });
                 i++;
             }
-
-            //try
-            //{
-            //    foreach (string c in HomeController.resultStrings)
-            //    {
-            //        HomeController.calcList.Add(c);
-            //    }
-            //}
-            //catch (Exception ex) { }
         }
     }
 }

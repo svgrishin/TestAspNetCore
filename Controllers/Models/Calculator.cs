@@ -7,8 +7,6 @@ namespace TestAspNetCore.Controllers.Models
         public string timeStampLabel;
         public string mrString;
 
-
-
         /// <summary>
         /// Флаг нажатия функции
         /// </summary>
