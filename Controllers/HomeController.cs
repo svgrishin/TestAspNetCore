@@ -344,7 +344,7 @@ namespace TestAspNetCore.Controllers
         {
             try
             {
-                getFromMR(value + 1);
+                getFromMR(value-1);
             }
             catch
             { }
@@ -354,8 +354,8 @@ namespace TestAspNetCore.Controllers
 
         public void getFromMR(int indexOf)
         {
-            calc.arg = calc.mr[indexOf - 1].ToString();
-            if (calc.mr[indexOf - 1] < 0) calc.minus = true;
+            calc.arg = calc.mr[indexOf].ToString();
+            if (calc.mr[indexOf] < 0) calc.minus = true;
             calc.disp = calc.displayOut(calc.arg);
 
             TempData["display"] = calc.disp;
@@ -393,15 +393,15 @@ namespace TestAspNetCore.Controllers
 
         public void setMrList(int indexOf)
         {
-            //try
-            //{
-            //    listBox_MR.Items[calc.mr.Length - 1].Text = calc.mr[indexOf].ToString();
-            //}
-            //catch
-            //{
-            //    listBox_MR.Items.Add(calc.mr[indexOf].ToString());
-            //}
-            mrStrings.Add(new SelectListItem() { Text = calc.mr[indexOf].ToString(), Value = calc.mr.Length.ToString() });
+            try
+            {
+                //listBox_MR.Items[calc.mr.Length - 1].Text = calc.mr[indexOf].ToString();
+                mrStrings[calc.mr.Length - 1].Text = calc.mr[indexOf].ToString();
+            }
+            catch
+            {
+                mrStrings.Add(new SelectListItem() { Text = calc.mr[indexOf].ToString(), Value = calc.mr.Length.ToString() });
+            }
         }
 
         public IActionResult btn_MC_Click(string btn_MC)
@@ -411,6 +411,16 @@ namespace TestAspNetCore.Controllers
             Array.Clear(calc.mr);
 
             TempData["display"] = btn_MC;
+
+            return View("Index");
+        }
+
+        public IActionResult btn_MR_Click()
+        {
+            getFromMR(calc.mr.Length - 1);
+            TempData["display"] = calc.arg;
+
+            calc.mrFlag = true;
 
             return View("Index");
         }
