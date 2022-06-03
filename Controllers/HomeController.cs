@@ -434,5 +434,22 @@ namespace TestAspNetCore.Controllers
 
             return View("Index");
         }
+
+        public IActionResult btn_MS_Click(string btn_MS)
+        {
+            int l = calc.mr.Length - 1;
+
+            if (calc.mr.Length > 0)
+            {
+                Array.Resize(ref calc.mr, l + 2);
+                l++;
+            }
+            setMR(l, 1);
+
+            calc.mrFlag = true;
+
+            TempData["display"] = btn_MS;
+            return View("Index");
+        }
     }
 }
