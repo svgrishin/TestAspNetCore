@@ -397,7 +397,6 @@ namespace TestAspNetCore.Controllers
         {
             try
             {
-                //listBox_MR.Items[calc.mr.Length - 1].Text = calc.mr[indexOf].ToString();
                 mrStrings[calc.mr.Length - 1].Text = calc.mr[indexOf].ToString();
             }
             catch
